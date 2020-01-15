@@ -6,4 +6,4 @@ class LivroSerializer(ModelSerializer):
     
     class Meta:
         model = Livro
-        fields = ('titulo', 'subtitulo', 'autores', 'foto')
+        fields = ('titulo', 'subtitulo', 'autores', 'foto', 'editora')
