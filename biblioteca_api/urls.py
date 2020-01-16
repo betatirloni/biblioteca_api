@@ -23,12 +23,14 @@ from livro.api.viewsets import LivroViewSet
 from emprestimo.api.viewsets import EmprestimoViewSet
 from autor.api.viewsets import AutorViewSet
 from categoria.api.viewsets import CategoriaViewSet
+from usuario.api.viewsets import UsuarioViewSet
 
 routers = routers.DefaultRouter()
 routers.register(r'livros', LivroViewSet)
 routers.register(r'emprestimos', EmprestimoViewSet)
 routers.register(r'autores', AutorViewSet)
 routers.register(r'categorias', CategoriaViewSet)
+routers.register(r'usuarios', UsuarioViewSet)
 
 urlpatterns = [
     path('', include(routers.urls)),
