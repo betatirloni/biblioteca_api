@@ -24,6 +24,7 @@ from emprestimo.api.viewsets import EmprestimoViewSet
 from autor.api.viewsets import AutorViewSet
 from categoria.api.viewsets import CategoriaViewSet
 from usuario.api.viewsets import UsuarioViewSet
+from rest_framework_jwt.views import obtain_jwt_token
 
 routers = routers.DefaultRouter()
 routers.register(r'livros', LivroViewSet)
@@ -35,4 +36,5 @@ routers.register(r'usuarios', UsuarioViewSet)
 urlpatterns = [
     path('', include(routers.urls)),
     path('admin/', admin.site.urls),
+    path('login/', obtain_jwt_token),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

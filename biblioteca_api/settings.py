@@ -25,6 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool) 
 
+DEBUG = True
+
 ALLOWED_HOSTS = ['biblioteca-rubem-alves-api.herokuapp.com', 'localhost']
 
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'autor',
     'emprestimo',
     'categoria',
+    'usuario',
+    'rest_framework_jwt',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,14 @@ MEDIA_ROOT = 'imagens'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
